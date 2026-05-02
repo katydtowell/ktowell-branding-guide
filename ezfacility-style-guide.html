@@ -1,0 +1,1916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EZFacility – Branding & Style Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #00C28A;
+      --green-hover: rgba(0,194,138,0.8);
+      --dark:        #182023;
+      --slate:       #597179;
+      --cyan:        #00BCC2;
+      --light-grey:  #F0F6F8;
+      --footer-grey: #e8eeef;
+      --white:       #ffffff;
+      --error:       #D41840;
+      --warning:     #FFDF6C;
+      --text-dark:   #222222;
+      --sidebar-w:   240px;
+      --radius:      4px;
+      --transition:  all 0.2s;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Fira Sans', Arial, sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ── Sidebar ── */
+    #sidebar {
+      position: fixed;
+      top: 0; left: 0;
+      width: var(--sidebar-w);
+      height: 100vh;
+      background: var(--dark);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      z-index: 100;
+    }
+
+    #sidebar .logo-wrap {
+      padding: 28px 20px 22px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    #sidebar .logo-wrap img { max-width: 140px; display: block; }
+
+    #sidebar nav { padding: 12px 0; flex: 1; }
+
+    #sidebar nav .nav-group-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      padding: 18px 20px 6px;
+      display: block;
+    }
+
+    #sidebar nav a {
+      display: block;
+      padding: 8px 20px;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 400;
+      transition: color 0.15s, background 0.15s;
+      border-left: 3px solid transparent;
+    }
+
+    #sidebar nav a:hover,
+    #sidebar nav a.active {
+      color: var(--green);
+      background: rgba(0,194,138,0.07);
+      border-left-color: var(--green);
+    }
+
+    /* ── Main content ── */
+    #main {
+      margin-left: var(--sidebar-w);
+      flex: 1;
+      padding: 0;
+    }
+
+    /* ── Hero ── */
+    #hero {
+      background: var(--dark);
+      padding: 64px 60px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    #hero .hero-text h1 {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    #hero .hero-text h1 span { color: var(--green); }
+
+    #hero .hero-text p {
+      margin-top: 12px;
+      color: rgba(255,255,255,0.6);
+      font-size: 16px;
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    /* ── Sections ── */
+    .section {
+      padding: 64px 60px;
+      border-bottom: 1px solid var(--light-grey);
+    }
+
+    .section:last-child { border-bottom: none; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--slate);
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+
+    .subsection-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 32px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--light-grey);
+    }
+
+    /* ── Brand Identity ── */
+    .brand-card {
+      background: var(--light-grey);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+    }
+
+    .brand-card strong {
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    .brand-card p {
+      margin-top: 6px;
+      color: var(--slate);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* ── Logo grid ── */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .logo-card {
+      border: 1px solid #e2e8ea;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .logo-card .logo-preview {
+      padding: 36px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 130px;
+    }
+
+    .logo-card .logo-preview img { max-width: 180px; max-height: 70px; }
+    .logo-card .logo-preview.dark-bg { background: var(--dark); }
+    .logo-card .logo-preview.grey-bg { background: var(--light-grey); }
+    .logo-card .logo-preview.green-bg { background: var(--green); }
+
+    .logo-card .logo-meta {
+      padding: 12px 16px;
+      border-top: 1px solid #e2e8ea;
+      background: var(--white);
+    }
+
+    .logo-card .logo-meta span {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--slate);
+      letter-spacing: 0.4px;
+    }
+
+    /* ── Do's & Don'ts ── */
+    .dos-donts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .dos-donts-card {
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .dos-donts-card.dos { background: rgba(0,194,138,0.07); border: 1px solid rgba(0,194,138,0.3); }
+    .dos-donts-card.donts { background: rgba(212,24,64,0.05); border: 1px solid rgba(212,24,64,0.2); }
+
+    .dos-donts-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .dos-donts-card.dos h4 { color: var(--green); }
+    .dos-donts-card.donts h4 { color: var(--error); }
+
+    .dos-donts-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .dos-donts-card ul li {
+      font-size: 13.5px;
+      color: var(--slate);
+      padding: 5px 0 5px 22px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .dos-donts-card ul li::before {
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .dos-donts-card.dos ul li::before { content: '✓'; color: var(--green); }
+    .dos-donts-card.donts ul li::before { content: '✗'; color: var(--error); }
+
+    /* ── Incorrect usage grid ── */
+    .usage-rule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .usage-rule-item {
+      background: var(--light-grey);
+      border-radius: 6px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .usage-rule-item .num {
+      background: var(--error);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 50%;
+      min-width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .usage-rule-item span {
+      font-size: 13px;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+
+    /* ── Color system ── */
+    .color-row { margin-bottom: 32px; }
+
+    .color-row h4 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--slate);
+      margin-bottom: 14px;
+    }
+
+    .color-swatches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .swatch {
+      width: 140px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.07);
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      position: relative;
+    }
+
+    .swatch:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+
+    .swatch-color { height: 80px; }
+
+    .swatch-info {
+      background: var(--white);
+      padding: 10px 12px;
+    }
+
+    .swatch-info .swatch-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dark);
+      display: block;
+    }
+
+    .swatch-info .swatch-hex {
+      font-size: 12px;
+      color: var(--slate);
+      font-family: monospace;
+      margin-top: 2px;
+      display: block;
+    }
+
+    .swatch .copy-badge {
+      position: absolute;
+      top: 8px; right: 8px;
+      background: rgba(0,0,0,0.55);
+      color: white;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 7px;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.15s;
+      pointer-events: none;
+    }
+
+    .swatch:hover .copy-badge { opacity: 1; }
+    .swatch.copied .copy-badge { opacity: 1; background: var(--green); }
+
+    /* ── Typography ── */
+    .type-specimens { display: flex; flex-direction: column; gap: 0; }
+
+    .type-row {
+      display: grid;
+      grid-template-columns: 160px 1fr 180px;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--light-grey);
+      gap: 24px;
+    }
+
+    .type-row:last-child { border-bottom: none; }
+
+    .type-label { font-size: 12px; font-weight: 700; color: var(--slate); text-transform: uppercase; letter-spacing: 1px; }
+
+    .type-meta {
+      font-size: 12px;
+      color: var(--slate);
+      line-height: 1.6;
+      font-family: monospace;
+    }
+
+    .t-h1  { font-size: 36px; font-weight: 700; color: var(--text-dark); }
+    .t-h2  { font-size: 28px; font-weight: 700; color: var(--text-dark); }
+    .t-h3  { font-size: 22px; font-weight: 700; color: var(--dark); }
+    .t-h4  { font-size: 18px; font-weight: 700; color: var(--dark); }
+    .t-h5  { font-size: 15px; font-weight: 700; color: var(--dark); }
+    .t-p   { font-size: 16px; font-weight: 400; color: var(--dark); line-height: 1.6; }
+    .t-link { font-size: 16px; font-weight: 400; color: var(--green); text-decoration: underline; cursor: pointer; }
+    .t-nav { font-size: 15px; font-weight: 400; color: var(--slate); }
+    .t-small { font-size: 11px; font-weight: 400; color: var(--dark); }
+
+    /* Font specimens */
+    .font-specimen {
+      background: var(--light-grey);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin-bottom: 16px;
+    }
+
+    .font-specimen h4 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--slate);
+      margin-bottom: 12px;
+    }
+
+    .font-specimen .alphabet {
+      font-family: 'Fira Sans', Arial, sans-serif;
+      font-size: 22px;
+      color: var(--dark);
+      line-height: 1.5;
+      word-break: break-all;
+    }
+
+    /* ── Buttons ── */
+    .btn-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .btn-showcase {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .btn-showcase label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--slate);
+    }
+
+    /* Primary button */
+    .btn-primary {
+      background: var(--green);
+      color: #182023;
+      border: none;
+      border-radius: var(--radius);
+      font-family: 'Fira Sans', Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 12px 28px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover { background: var(--green); opacity: 0.8; }
+
+    .btn-primary.lg { font-size: 18px; padding: 16px 36px; }
+    .btn-primary.sm { font-size: 13px; padding: 8px 18px; }
+
+    /* Secondary button */
+    .btn-secondary {
+      background: var(--white);
+      color: var(--green);
+      border: 2px solid var(--green);
+      border-radius: var(--radius);
+      font-family: 'Fira Sans', Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 26px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-secondary:hover { opacity: 0.8; }
+
+    /* Reversed Primary button */
+    .btn-rev-primary {
+      background: var(--white);
+      color: #182023;
+      border: none;
+      border-radius: var(--radius);
+      font-family: 'Fira Sans', Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 12px 28px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-rev-primary:hover { opacity: 0.8; }
+
+    /* Reversed Secondary button */
+    .btn-rev-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+      border-radius: var(--radius);
+      font-family: 'Fira Sans', Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 10px 26px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-rev-secondary:hover { opacity: 0.8; }
+
+    /* Dark panel for reversed button preview */
+    .btn-dark-panel {
+      background: var(--dark);
+      border-radius: 8px;
+      padding: 28px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: flex-end;
+    }
+
+    .btn-spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      margin-top: 24px;
+    }
+
+    .btn-spec-table th {
+      background: var(--dark);
+      color: rgba(255,255,255,0.7);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .btn-spec-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--light-grey);
+      color: var(--slate);
+      font-family: monospace;
+      font-size: 12.5px;
+    }
+
+    .btn-spec-table tr:last-child td { border-bottom: none; }
+
+    /* ── Form Fields ── */
+    .form-demo { max-width: 480px; }
+
+    .form-group { margin-bottom: 20px; }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-input {
+      width: 100%;
+      border: 2px solid #dddddd;
+      border-radius: var(--radius);
+      font-family: 'Fira Sans', Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: #888888;
+      padding: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+      background: white;
+    }
+
+    .form-input:focus { border-color: var(--green); color: var(--dark); }
+
+    .form-input.error { border-color: var(--error); color: var(--error); }
+
+    .error-msg {
+      font-size: 12px;
+      color: var(--error);
+      margin-top: 4px;
+    }
+
+    /* ── Validation colors ── */
+    .validation-grid {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .validation-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--light-grey);
+      border-radius: 6px;
+      padding: 12px 18px;
+    }
+
+    .validation-dot {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .validation-pill span {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .validation-pill code {
+      font-size: 11px;
+      color: var(--slate);
+      background: rgba(0,0,0,0.06);
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    /* ── Photography ── */
+    .photo-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .photo-card {
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .photo-card.do { background: rgba(0,194,138,0.07); border: 1px solid rgba(0,194,138,0.25); }
+    .photo-card.dont { background: rgba(212,24,64,0.05); border: 1px solid rgba(212,24,64,0.2); }
+
+    .photo-card h4 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    .photo-card.do h4 { color: var(--green); }
+    .photo-card.dont h4 { color: var(--error); }
+
+    .photo-card ul { list-style: none; padding: 0; }
+
+    .photo-card ul li {
+      font-size: 13.5px;
+      color: var(--slate);
+      line-height: 1.5;
+      padding: 4px 0 4px 20px;
+      position: relative;
+    }
+
+    .photo-card ul li::before {
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+
+    .photo-card.do ul li::before { content: '✓'; color: var(--green); }
+    .photo-card.dont ul li::before { content: '✗'; color: var(--error); }
+
+    /* ── Spacing system ── */
+    .spacing-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: flex-end;
+    }
+
+    .spacing-item { text-align: center; }
+
+    .spacing-bar {
+      background: var(--green);
+      border-radius: 4px;
+      width: 60px;
+      margin: 0 auto 8px;
+      opacity: 0.7;
+    }
+
+    .spacing-item label {
+      font-size: 11px;
+      color: var(--slate);
+      font-weight: 600;
+      display: block;
+    }
+
+    .spacing-item code {
+      font-size: 11px;
+      color: var(--green);
+      background: rgba(0,194,138,0.1);
+      padding: 2px 6px;
+      border-radius: 3px;
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* ── Icon section ── */
+    .icon-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .icon-item {
+      background: var(--light-grey);
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 110px;
+    }
+
+    .icon-item img { width: 40px; height: 40px; }
+
+    .icon-item span {
+      font-size: 11px;
+      text-align: center;
+      color: var(--slate);
+      font-weight: 600;
+    }
+
+    /* ── Mission chip ── */
+    .mission-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,194,138,0.1);
+      border: 1px solid rgba(0,194,138,0.3);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    /* ── Toast ── */
+    #toast {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: var(--dark);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      transform: translateY(80px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    #toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ── Info table ── */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .info-table td {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--light-grey);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .info-table td:first-child {
+      font-weight: 700;
+      color: var(--dark);
+      width: 180px;
+      padding-right: 20px;
+    }
+
+    .info-table td:last-child { color: var(--slate); }
+
+    .download-link {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .download-link:hover {
+      opacity: 0.8;
+      text-decoration: underline;
+    }
+
+    .info-table tr:last-child td { border-bottom: none; }
+
+    /* ── Scrollbar ── */
+    #sidebar::-webkit-scrollbar { width: 4px; }
+    #sidebar::-webkit-scrollbar-track { background: transparent; }
+    #sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+
+    /* ── Chips ── */
+    .tag {
+      display: inline-block;
+      background: var(--light-grey);
+      color: var(--slate);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .tag.green { background: rgba(0,194,138,0.12); color: var(--green); }
+    .tag.dark  { background: var(--dark); color: rgba(255,255,255,0.8); }
+
+    /* ── Mobile top bar ── */
+    #mobile-bar {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 60px;
+      background: var(--dark);
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 200;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+
+    #mobile-bar img { height: 28px; }
+
+    #hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+
+    #hamburger:hover { background: rgba(255,255,255,0.08); }
+
+    #hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform 0.25s, opacity 0.25s;
+      transform-origin: center;
+    }
+
+    /* Hamburger → X animation */
+    body.nav-open #hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    body.nav-open #hamburger span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    body.nav-open #hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── Sidebar overlay ── */
+    #overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 150;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    body.nav-open #overlay { opacity: 1; }
+
+    /* ── Responsive breakpoint ── */
+    @media (max-width: 768px) {
+
+      /* Prevent any element from blowing out the viewport width */
+      html, body { overflow-x: hidden; max-width: 100%; }
+      *, *::before, *::after { max-width: 100%; }
+      img { max-width: 100%; height: auto; }
+
+      /* Show mobile bar, hide desktop sidebar by default */
+      #mobile-bar { display: flex; }
+      #overlay { display: block; pointer-events: none; }
+      body.nav-open #overlay { pointer-events: auto; }
+
+      /* Sidebar slides in from left */
+      #sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 180;
+      }
+
+      body.nav-open #sidebar { transform: translateX(0); }
+
+      /* Main content full width, offset for mobile bar */
+      #main {
+        margin-left: 0;
+        padding-top: 60px;
+        width: 100%;
+        overflow-x: hidden;
+      }
+
+      /* Hero */
+      #hero {
+        padding: 40px 24px;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+      }
+
+      #hero .hero-text h1 { font-size: 26px; }
+      #hero .hero-text p  { font-size: 14px; margin-top: 10px; }
+
+      /* Sections */
+      .section { padding: 40px 24px; width: 100%; }
+
+      .section-title { font-size: 22px; }
+
+      /* Two-col grids → single col */
+      .dos-donts-grid,
+      .photo-row { grid-template-columns: 1fr; }
+
+      /* Logo grid min size */
+      .logo-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+
+      /* Typography rows → stacked */
+      .type-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 16px 0;
+      }
+
+      .type-meta { display: none; }
+
+      .t-h1 { font-size: 24px; word-break: break-word; }
+      .t-h2 { font-size: 20px; word-break: break-word; }
+
+      /* Font specimen */
+      .font-specimen { padding: 20px; }
+      .font-specimen .alphabet { font-size: 15px; word-break: break-all; overflow-wrap: break-word; }
+
+      /* Scrollable spec table */
+      .btn-spec-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 4px;
+        max-width: 100%;
+      }
+
+      .btn-spec-table { min-width: 480px; }
+
+      /* Info table stacks */
+      .info-table { table-layout: fixed; width: 100%; }
+      .info-table td:first-child { width: auto; display: block; padding-right: 0; padding-bottom: 2px; word-break: break-word; }
+      .info-table td:last-child   { display: block; padding-top: 0; padding-bottom: 12px; word-break: break-word; }
+      .info-table td { border-bottom: none; }
+      .info-table tr { border-bottom: 1px solid var(--light-grey); display: block; padding: 8px 0; }
+      .info-table tr:last-child { border-bottom: none; }
+
+      /* Swatches — let them wrap naturally */
+      .color-swatches { gap: 12px; }
+      .swatch { width: calc(50% - 6px); min-width: 0; }
+
+      /* Validation pills */
+      .validation-grid { flex-direction: column; }
+      .validation-pill { flex-wrap: wrap; max-width: 100%; }
+      .validation-pill code { word-break: break-all; }
+
+      /* Brand cards */
+      .brand-card { word-break: break-word; }
+
+      /* Dark reversed button panel */
+      .btn-dark-panel { padding: 20px 16px; flex-direction: column; align-items: flex-start; }
+
+      /* Spacing bars */
+      .spacing-grid { gap: 12px; }
+
+      /* Icon items */
+      .icon-item { width: 90px; padding: 14px; }
+
+      /* Button grid */
+      .btn-grid { flex-direction: column; align-items: flex-start; }
+
+      /* Form demo */
+      .form-demo { max-width: 100%; }
+
+      /* Subsection title */
+      .subsection-title { word-break: break-word; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Mobile top bar -->
+<div id="mobile-bar">
+  <img src="https://www.ezfacility.com/wp-content/uploads/2019/06/logo_white.svg" alt="EZFacility" />
+  <button id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</div>
+
+<!-- Sidebar overlay -->
+<div id="overlay"></div>
+
+<!-- ════════════════════════════════════════════
+     SIDEBAR NAVIGATION
+════════════════════════════════════════════ -->
+<nav id="sidebar">
+  <div class="logo-wrap">
+    <img src="https://www.ezfacility.com/wp-content/uploads/2019/06/logo_white.svg" alt="EZFacility" />
+  </div>
+  <nav>
+    <span class="nav-group-label">Brand Basics</span>
+    <a href="#brand-identity">Brand Identity</a>
+    <a href="#logos">Logos</a>
+    <a href="#logo-usage">Logo Usage</a>
+
+    <span class="nav-group-label">Visual System</span>
+    <a href="#colors">Colors</a>
+    <a href="#typography">Typography</a>
+    <a href="#icons">Icons</a>
+    <a href="#photography">Photography</a>
+
+    <span class="nav-group-label">UI Library</span>
+    <a href="#ui-typography">UI Typography</a>
+    <a href="#ui-colors">UI Colors</a>
+    <a href="#buttons">Buttons</a>
+    <a href="#forms">Form Fields</a>
+    <a href="#spacing">Spacing</a>
+
+    <span class="nav-group-label">Resources</span>
+    <a href="#templates">Templates & Downloads</a>
+  </nav>
+</nav>
+
+<!-- ════════════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════════════ -->
+<main id="main">
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-text">
+      <h1><span>EZ</span><span style="color:#ffffff;">Facility</span><br/><span style="color:#F0F6F8;">Branding & Style Guide</span></h1>
+      <p>The key brand resources and fundamentals to get started with our brand. Find logos, colors, typography specs, and UI components.</p>
+    </div>
+  </section>
+
+  <!-- ── BRAND IDENTITY ── -->
+  <section class="section" id="brand-identity">
+    <div class="section-label">Brand Basics</div>
+    <h2 class="section-title">Brand Identity & Principles</h2>
+    <p class="section-subtitle">The foundational values and guidelines that define who EZFacility is.</p>
+
+    <div class="brand-card">
+      <strong>Mission Statement</strong>
+      <p>Our mission is to transform the way our clients attract, manage and engage their customers. We do this by delighting them with our feature-rich management software and fanatical customer service.</p>
+    </div>
+
+    <div class="brand-card">
+      <strong>Company Name</strong>
+      <p>The official company name is <strong>"EZFacility, Inc."</strong> — used only for professional and formal documentation. The company is more commonly referred to as <strong>"EZFacility"</strong>, which is how the company should be named in all copy.</p>
+    </div>
+
+    <div class="brand-card">
+      <strong>Our Story</strong>
+      <p>In 2003, we created EZFacility with a vision to build a great company – one that changes the way businesses are run through cutting edge technology; one that delivers real value to our customers; one that creates substantial rewards and opportunities for our employees; and one that is an enjoyable place to work.</p>
+    </div>
+
+    <p class="section-subtitle" style="margin-top:28px; margin-bottom:0;">
+      The following guidelines have been developed to ensure the correct usage of EZFacility's brand identity wherever it is reproduced and applied. <strong>Do not deviate from the guideline.</strong> Any departure from the documentation will be a misrepresentation of EZFacility both as a brand and as a business.
+    </p>
+  </section>
+
+  <!-- ── LOGOS ── -->
+  <section class="section" id="logos">
+    <div class="section-label">Brand Identity</div>
+    <h2 class="section-title">Master Brand Logos</h2>
+    <p class="section-subtitle">The primary full color logo should be used whenever possible to officially represent the company in all brand communications.</p>
+
+    <h3 class="subsection-title">Primary Logo Variations</h3>
+    <div class="logo-grid">
+
+      <div class="logo-card">
+        <div class="logo-preview" style="background:#f8fafc;">
+          <img src="https://www.ezfacility.com/wp-content/uploads/2019/01/logos_full-color.svg" alt="EZFacility Full Color" />
+        </div>
+        <div class="logo-meta">
+          <span>Primary Logo – Full Color</span>
+        </div>
+      </div>
+
+      <div class="logo-card">
+        <div class="logo-preview dark-bg">
+          <img src="https://www.ezfacility.com/wp-content/uploads/2019/06/logo_white.svg" alt="EZFacility White" />
+        </div>
+        <div class="logo-meta">
+          <span>Primary Logo – All White</span>
+        </div>
+      </div>
+
+      <div class="logo-card">
+        <div class="logo-preview grey-bg">
+          <img src="https://www.ezfacility.com/wp-content/uploads/2019/06/logo_grayscale.svg" alt="EZFacility Greyscale" />
+        </div>
+        <div class="logo-meta">
+          <span>Primary Logo – Greyscale <span class="tag" style="margin-left:6px;">Print only</span></span>
+        </div>
+      </div>
+
+      <div class="logo-card">
+        <div class="logo-preview grey-bg">
+          <img src="https://www.ezfacility.com/wp-content/uploads/2019/06/logo_slate.svg" alt="EZFacility Slate" />
+        </div>
+        <div class="logo-meta">
+          <span>Single Color – Slate</span>
+        </div>
+      </div>
+
+      <div class="logo-card">
+        <div class="logo-preview" style="background:#f8fafc;">
+          <img src="https://www.ezfacility.com/wp-content/uploads/2019/06/logo_green-01.svg" alt="EZFacility Green" />
+        </div>
+        <div class="logo-meta">
+          <span>Single Color – Green</span>
+        </div>
+      </div>
+
+      <div class="logo-card">
+        <div class="logo-preview dark-bg">
+          <img src="https://www.ezfacility.com/wp-content/uploads/2019/06/logos_dark-background.svg" alt="EZFacility Dark BG" />
+        </div>
+        <div class="logo-meta">
+          <span>Primary Logo – Dark Background</span>
+        </div>
+      </div>
+
+    </div>
+
+    <h3 class="subsection-title">Logo Icon</h3>
+    <div class="logo-grid" style="grid-template-columns: repeat(3, minmax(0, 200px));">
+      <div class="logo-card">
+        <div class="logo-preview" style="background:#f8fafc;">
+          <img src="https://www.ezfacility.com/wp-content/uploads/2019/06/logo_icon.svg" alt="Logo Icon" style="max-width:60px; max-height:60px;" />
+        </div>
+        <div class="logo-meta">
+          <span>Logo Icon – Full Color <span class="tag green" style="margin-left:6px;">Favicon / Social</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="brand-card" style="margin-top:24px;">
+      <strong>When to use each variation</strong>
+      <p style="margin-top:10px; line-height:1.9;">
+        <strong>Full color logo</strong> — Use whenever possible to officially represent the company.<br/>
+        <strong>All white logo</strong> — Use on dark or photographic backgrounds.<br/>
+        <strong>Single color logo</strong> — Use when the primary orange vibrates against a colored background.<br/>
+        <strong>Greyscale logo</strong> — Use ONLY for envelopes, newsprint, and printed/scanned documentation.<br/>
+        <strong>Logo icon</strong> — Use as favicon and on all social media outlets.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── LOGO USAGE ── -->
+  <section class="section" id="logo-usage">
+    <div class="section-label">Brand Identity</div>
+    <h2 class="section-title">Logo Usage – Do's & Don'ts</h2>
+    <p class="section-subtitle">Only approved variations of the logo can be used and cannot be altered in any way.</p>
+
+    <div class="dos-donts-grid" style="margin-bottom:32px;">
+      <div class="dos-donts-card dos">
+        <h4>✓ Correct Usage</h4>
+        <ul>
+          <li>Use the full color logo whenever possible</li>
+          <li>Use white logo on dark or photographic backgrounds</li>
+          <li>Maintain designated clear space (min. 0.5" around logo)</li>
+          <li>Use only approved color variations</li>
+          <li>Scale proportionally at all times</li>
+        </ul>
+      </div>
+      <div class="dos-donts-card donts">
+        <h4>✗ Incorrect Usage</h4>
+        <ul>
+          <li>Re-arrange the order of elements</li>
+          <li>Change orientation or rotation</li>
+          <li>Disproportionately scale or resize</li>
+          <li>Change the color of elements</li>
+          <li>Recreate the logo or change the font</li>
+          <li>Add special effects to the logo</li>
+          <li>Display logo as outline text</li>
+          <li>Place on contrasting background</li>
+          <li>Add other elements not specified</li>
+          <li>Crop the logo in any way</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Clear Space Rule</h3>
+    <div class="brand-card">
+      <strong>Size & Positioning</strong>
+      <p>Whenever possible, isolate the EZFacility logo or icon from other copy or graphic elements by creating a designated amount of clear space around it equal to the distance indicated by "X". <strong>The size of "X" should never be smaller than 0.5 inches</strong> in width on either side of the logo.</p>
+    </div>
+    <img src="https://www.ezfacility.com/wp-content/uploads/2019/06/logo-usage-12.svg" alt="Logo clear space diagram" style="width:100%; max-width:640px; display:block; margin-top:20px;" />
+  </section>
+
+  <!-- ── COLORS ── -->
+  <section class="section" id="colors">
+    <div class="section-label">Visual System</div>
+    <h2 class="section-title">Color Palette</h2>
+    <p class="section-subtitle">Click any swatch to copy the hex value to your clipboard.</p>
+
+    <div class="color-row">
+      <h4>Primary Colors</h4>
+      <div class="color-swatches">
+        <div class="swatch" onclick="copyColor('#00C28A', this)">
+          <div class="swatch-color" style="background:#00C28A;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Brand Green</span>
+            <span class="swatch-hex">#00C28A</span>
+            <span class="swatch-hex">RGB 0, 194, 138</span>
+          </div>
+          <div class="copy-badge">Copy</div>
+        </div>
+        <div class="swatch" onclick="copyColor('#182023', this)">
+          <div class="swatch-color" style="background:#182023;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Brand Dark</span>
+            <span class="swatch-hex">#182023</span>
+            <span class="swatch-hex">RGB 24, 32, 35</span>
+          </div>
+          <div class="copy-badge">Copy</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-row">
+      <h4>Secondary Colors</h4>
+      <div class="color-swatches">
+        <div class="swatch" onclick="copyColor('#597179', this)">
+          <div class="swatch-color" style="background:#597179;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Slate</span>
+            <span class="swatch-hex">#597179</span>
+          </div>
+          <div class="copy-badge">Copy</div>
+        </div>
+        <div class="swatch" onclick="copyColor('#00BCC2', this)">
+          <div class="swatch-color" style="background:#00BCC2;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Dark Cyan</span>
+            <span class="swatch-hex">#00BCC2</span>
+          </div>
+          <div class="copy-badge">Copy</div>
+        </div>
+        <div class="swatch" onclick="copyColor('#F0F6F8', this)">
+          <div class="swatch-color" style="background:#F0F6F8; border-bottom:1px solid #e2e8ea;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Light Grey</span>
+            <span class="swatch-hex">#F0F6F8</span>
+          </div>
+          <div class="copy-badge">Copy</div>
+        </div>
+        <div class="swatch" onclick="copyColor('#ffffff', this)">
+          <div class="swatch-color" style="background:#ffffff; border-bottom:1px solid #e2e8ea;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">White</span>
+            <span class="swatch-hex">#FFFFFF</span>
+          </div>
+          <div class="copy-badge">Copy</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-row">
+      <h4>Validation Colors</h4>
+      <div class="validation-grid">
+        <div class="validation-pill">
+          <div class="validation-dot" style="background:#D41840;"></div>
+          <span>Error</span>
+          <code>#D41840</code>
+          <code>RGB 212, 24, 64</code>
+        </div>
+        <div class="validation-pill">
+          <div class="validation-dot" style="background:#FFDF6C;"></div>
+          <span>Warning</span>
+          <code>#FFDF6C</code>
+          <code>RGB 255, 223, 108</code>
+        </div>
+        <div class="validation-pill">
+          <div class="validation-dot" style="background:#00C28A;"></div>
+          <span>Success</span>
+          <code>#00C28A</code>
+          <code>RGB 0, 194, 138</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TYPOGRAPHY ── -->
+  <section class="section" id="typography">
+    <div class="section-label">Visual System</div>
+    <h2 class="section-title">Typography</h2>
+    <p class="section-subtitle">EZFacility's primary typeface is <strong>Fira Sans</strong> for both print and web. Fallback: Arial, Helvetica, sans-serif.</p>
+
+    <h3 class="subsection-title">Typeface Specimens</h3>
+
+    <div class="font-specimen">
+      <h4>Fira Sans Regular</h4>
+      <div class="alphabet" style="font-weight:400;">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZAbcdefghijklmnopqrstuvwxyz1234567890
+      </div>
+    </div>
+
+    <div class="font-specimen">
+      <h4>Fira Sans Bold</h4>
+      <div class="alphabet" style="font-weight:700;">
+        ABCDEFGHIJKLMNOPQRSTUVWXYZAbcdefghijklmnopqrstuvwxyz1234567890
+      </div>
+    </div>
+
+    <div class="brand-card" style="margin-top:20px;">
+      <strong>Usage Notes</strong>
+      <p style="margin-top:8px;">
+        <strong>Print:</strong> Fira Sans Bold for main headings · Fira Sans Regular for all body text<br/>
+        <strong>Web / Email:</strong> Fira Sans Regular for standard copy · Fira Sans Bold for headlines and calls to action<br/>
+        <strong>Fallback:</strong> Arial, Helvetica, sans-serif (when Fira Sans is unavailable)
+      </p>
+    </div>
+  </section>
+
+  <!-- ── ICONS ── -->
+  <section class="section" id="icons">
+    <div class="section-label">Visual System</div>
+    <h2 class="section-title">Icon Fonts & Styles</h2>
+    <p class="section-subtitle">Streamline Ultimate Icons have been used for EZFacility. Icons can be downloaded and styled from the Streamline Ultimate website.</p>
+
+    <div class="icon-grid">
+      <div class="icon-item">
+        <img src="https://www.ezfacility.com/wp-content/uploads/2019/09/EZF-Icons-19.svg" alt="Facility Scheduling" onerror="this.style.display='none';this.nextSibling.style.display='flex'" />
+        <span>Facility Scheduling</span>
+      </div>
+      <div class="icon-item">
+        <img src="https://www.ezfacility.com/wp-content/uploads/2019/09/EZF-Icons-02.svg" alt="Branded Mobile App" onerror="this.style.display='none'" />
+        <span>Branded Mobile App</span>
+      </div>
+      <div class="icon-item">
+        <img src="https://www.ezfacility.com/wp-content/uploads/2019/09/EZF-Icons-29.svg" alt="Payments" onerror="this.style.display='none'" />
+        <span>Payments</span>
+      </div>
+      <div class="icon-item">
+        <img src="https://www.ezfacility.com/wp-content/uploads/2019/09/EZF-Icons-21-1.svg" alt="Online Registration" onerror="this.style.display='none'" />
+        <span>Online Registration</span>
+      </div>
+      <div class="icon-item">
+        <img src="https://www.ezfacility.com/wp-content/uploads/2019/09/EZF-Icons-12.svg" alt="Point of Sale" onerror="this.style.display='none'" />
+        <span>Point of Sale</span>
+      </div>
+      <div class="icon-item">
+        <img src="https://www.ezfacility.com/wp-content/uploads/2019/09/EZF-Icons-09.svg" alt="Reporting" onerror="this.style.display='none'" />
+        <span>Reporting</span>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Download Icons</h3>
+    <table class="info-table">
+      <tr>
+        <td><a href="https://www.ezfacility.com/style-guide/" class="download-link">Full EZ Icon Set</a></td>
+        <td>Complete EZFacility icon set for use across digital materials</td>
+      </tr>
+
+      <tr>
+        <td><a href="https://www.ezfacility.com/style-guide/" class="download-link">Social Media Icons – Full Color</a></td>
+        <td>Full color social media icons (Twitter, Facebook, LinkedIn, YouTube)</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.ezfacility.com/style-guide/" class="download-link">Social Media Icons – Gray</a></td>
+        <td>Gray social media icons (Twitter, Facebook, LinkedIn, YouTube)</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- ── PHOTOGRAPHY ── -->
+  <section class="section" id="photography">
+    <div class="section-label">Visual System</div>
+    <h2 class="section-title">Photography Style</h2>
+    <p class="section-subtitle">Photography should feel authentic, professional, and aligned with the EZFacility brand environment.</p>
+
+    <div class="photo-row">
+      <div class="photo-card do">
+        <h4>✓ Do's – Correct Usage</h4>
+        <ul>
+          <li><strong>Environment:</strong> Fitness facilities, gyms, yoga studios, weight rooms, wellness facilities, spas</li>
+          <li><strong>Lighting:</strong> Natural, warm feel or glow</li>
+          <li><strong>Models:</strong> Fitness trainers, club owners, wellness staff, coaches, professional business owners (mainly middle-aged males, business professionals)</li>
+          <li><strong>Wardrobe:</strong> Fitness or gym attire, casual professional wear — business appropriate but not suit and tie</li>
+          <li><strong>Color Palette:</strong> Established brand colors</li>
+          <li><strong>Software:</strong> Self-service, point of sale, scheduling software shown on laptops, tablets, multiple devices</li>
+        </ul>
+      </div>
+      <div class="photo-card dont">
+        <h4>✗ Don'ts – Incorrect Usage</h4>
+        <ul>
+          <li><strong>Environment:</strong> Corporate offices, hotels, conference rooms, school classrooms</li>
+          <li><strong>Lighting:</strong> Cold, dark and dull colors, weird cropping, no natural light</li>
+          <li><strong>Models:</strong> Too young or overly hip fitness models, business attire/suits, overly cheesy smiles, direct eye contact, close-ups, non-believable expressions, all-female audience, religious subjects</li>
+          <li><strong>Wardrobe:</strong> Corporate attire, suits, dress shoes, button-ups, high heels, dresses, or overly revealing workout gear</li>
+          <li>No nudity</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── UI TYPOGRAPHY ── -->
+  <section class="section" id="ui-typography">
+    <div class="section-label">UI Library</div>
+    <h2 class="section-title">UI Typography Styles</h2>
+    <p class="section-subtitle">Typography styles for web and native applications using Fira Sans.</p>
+
+    <div class="type-specimens">
+      <div class="type-row">
+        <span class="type-label">H1 – Main Heading</span>
+        <span class="t-h1">The Quick Brown Fox</span>
+        <span class="type-meta">Color: #222222<br/>Weight: Bold<br/>Size: Large</span>
+      </div>
+      <div class="type-row">
+        <span class="type-label">H2 – Secondary Heading</span>
+        <span class="t-h2">The Quick Brown Fox</span>
+        <span class="type-meta">Color: #222222<br/>Weight: Bold<br/>Size: Medium</span>
+      </div>
+      <div class="type-row">
+        <span class="type-label">H3 – Subheading</span>
+        <span class="t-h3">The Quick Brown Fox</span>
+        <span class="type-meta">Color: #182023<br/>Weight: Bold<br/>Size: Default</span>
+      </div>
+      <div class="type-row">
+        <span class="type-label">H4 – Important Body</span>
+        <span class="t-h4">The Quick Brown Fox</span>
+        <span class="type-meta">Color: #182023<br/>Weight: Bold<br/>Size: Default</span>
+      </div>
+      <div class="type-row">
+        <span class="type-label">H5 – Small Heading</span>
+        <span class="t-h5">The Quick Brown Fox</span>
+        <span class="type-meta">Color: #182023<br/>Weight: Bold<br/>Size: Default</span>
+      </div>
+      <div class="type-row">
+        <span class="type-label">Paragraph – Body Text</span>
+        <span class="t-p">The quick brown fox jumps over the lazy dog. Body copy uses Fira Sans Regular at paragraph size.</span>
+        <span class="type-meta">Color: #182023<br/>Weight: Regular<br/>Size: Paragraph</span>
+      </div>
+      <div class="type-row">
+        <span class="type-label">Text Link</span>
+        <span class="t-link" onclick="void(0)">This is a text link</span>
+        <span class="type-meta">Color: #00C28A<br/>Hover: opacity 0.8</span>
+      </div>
+      <div class="type-row">
+        <span class="type-label">Nav Link</span>
+        <span class="t-nav">Navigation Item</span>
+        <span class="type-meta">Color: #597179<br/>Hover: opacity 0.8</span>
+      </div>
+      <div class="type-row">
+        <span class="type-label">Small / Disclaimer</span>
+        <span class="t-small">This is small text used for disclaimers and fine print at 11px.</span>
+        <span class="type-meta">Color: #182023<br/>Size: 11px</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── UI COLORS ── -->
+  <section class="section" id="ui-colors">
+    <div class="section-label">UI Library</div>
+    <h2 class="section-title">UI Color System</h2>
+    <p class="section-subtitle">Color roles for web components and UI elements. Click to copy hex values.</p>
+
+    <div class="color-swatches" style="flex-wrap:wrap; gap:14px;">
+
+      <div class="swatch" onclick="copyColor('#00C28A', this)">
+        <div class="swatch-color" style="background:#00C28A;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Buttons</span>
+          <span class="swatch-hex">#00C28A</span>
+        </div>
+        <div class="copy-badge">Copy</div>
+      </div>
+
+      <div class="swatch" onclick="copyColor('rgba(0,194,138,0.8)', this)">
+        <div class="swatch-color" style="background:rgba(0,194,138,0.8);"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Button Hover</span>
+          <span class="swatch-hex">rgba(0,194,138,0.8)</span>
+        </div>
+        <div class="copy-badge">Copy</div>
+      </div>
+
+      <div class="swatch" onclick="copyColor('#182023', this)">
+        <div class="swatch-color" style="background:#182023;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Headings & Accents</span>
+          <span class="swatch-hex">#182023</span>
+        </div>
+        <div class="copy-badge">Copy</div>
+      </div>
+
+      <div class="swatch" onclick="copyColor('#597179', this)">
+        <div class="swatch-color" style="background:#597179;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Subheadings & Body</span>
+          <span class="swatch-hex">#597179</span>
+        </div>
+        <div class="copy-badge">Copy</div>
+      </div>
+
+      <div class="swatch" onclick="copyColor('#e8eeef', this)">
+        <div class="swatch-color" style="background:#e8eeef; border-bottom:1px solid #d0d8db;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Grey BKGD / Footer</span>
+          <span class="swatch-hex">#E8EEEF</span>
+        </div>
+        <div class="copy-badge">Copy</div>
+      </div>
+
+      <div class="swatch" onclick="copyColor('#f0f6f8', this)">
+        <div class="swatch-color" style="background:#f0f6f8; border-bottom:1px solid #d0d8db;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Light Grey BKGD</span>
+          <span class="swatch-hex">#F0F6F8</span>
+        </div>
+        <div class="copy-badge">Copy</div>
+      </div>
+
+      <div class="swatch" onclick="copyColor('#00BCC2', this)">
+        <div class="swatch-color" style="background:#00BCC2;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Cyan Accents</span>
+          <span class="swatch-hex">#00BCC2</span>
+        </div>
+        <div class="copy-badge">Copy</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── BUTTONS ── -->
+  <section class="section" id="buttons">
+    <div class="section-label">UI Library</div>
+    <h2 class="section-title">Buttons</h2>
+    <p class="section-subtitle">All buttons use Fira Sans Semibold with 4px border radius and 0.2s transition. Hover over each button to see the hover state.</p>
+
+    <h3 class="subsection-title">Button Variants</h3>
+    <div class="btn-grid">
+      <div class="btn-showcase">
+        <label>Primary</label>
+        <button class="btn-primary">Primary Button</button>
+      </div>
+      <div class="btn-showcase">
+        <label>Secondary</label>
+        <button class="btn-secondary">Secondary Button</button>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Reversed Buttons <span class="tag dark" style="margin-left:8px; vertical-align:middle; font-size:10px;">For use on dark backgrounds</span></h3>
+    <div class="btn-dark-panel">
+      <div class="btn-showcase">
+        <label style="color:rgba(255,255,255,0.5);">Reversed Primary</label>
+        <button class="btn-rev-primary">Reversed Primary</button>
+      </div>
+      <div class="btn-showcase">
+        <label style="color:rgba(255,255,255,0.5);">Reversed Secondary</label>
+        <button class="btn-rev-secondary">Reversed Secondary</button>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Button Sizes</h3>
+    <div class="btn-grid" style="align-items:center;">
+      <div class="btn-showcase">
+        <label>Large</label>
+        <button class="btn-primary lg">Large Button</button>
+      </div>
+      <div class="btn-showcase">
+        <label>Default</label>
+        <button class="btn-primary">Default Button</button>
+      </div>
+      <div class="btn-showcase">
+        <label>Small</label>
+        <button class="btn-primary sm">Small Button</button>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Button Specifications</h3>
+    <div class="btn-spec-table-wrap">
+    <table class="btn-spec-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Primary</th>
+          <th>Secondary</th>
+          <th>Reversed Primary</th>
+          <th>Reversed Secondary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Background</td>
+          <td>#00C28A</td>
+          <td>#FFFFFF</td>
+          <td>#FFFFFF</td>
+          <td>Transparent</td>
+        </tr>
+        <tr>
+          <td>Text Color</td>
+          <td>#182023</td>
+          <td>#00C28A</td>
+          <td>#182023</td>
+          <td>#FFFFFF</td>
+        </tr>
+        <tr>
+          <td>Border</td>
+          <td>None</td>
+          <td>2px solid #00C28A</td>
+          <td>None</td>
+          <td>2px solid #FFFFFF</td>
+        </tr>
+        <tr>
+          <td>Border Radius</td>
+          <td>4px</td>
+          <td>4px</td>
+          <td>4px</td>
+          <td>4px</td>
+        </tr>
+        <tr>
+          <td>Font Weight</td>
+          <td>Semibold (600)</td>
+          <td>Semibold (600)</td>
+          <td>Semibold (600)</td>
+          <td>Semibold (600)</td>
+        </tr>
+        <tr>
+          <td>Hover</td>
+          <td>Opacity 0.8</td>
+          <td>Opacity 0.8</td>
+          <td>Opacity 0.8</td>
+          <td>Opacity 0.8</td>
+        </tr>
+        <tr>
+          <td>Transition</td>
+          <td>all 0.2s</td>
+          <td>all 0.2s</td>
+          <td>all 0.2s</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <!-- ── FORM FIELDS ── -->
+  <section class="section" id="forms">
+    <div class="section-label">UI Library</div>
+    <h2 class="section-title">Form Fields</h2>
+    <p class="section-subtitle">Standard input specifications for web forms.</p>
+
+    <div class="form-demo">
+      <div class="form-group">
+        <label>Default Input</label>
+        <input type="text" class="form-input" placeholder="Placeholder text…" />
+      </div>
+      <div class="form-group">
+        <label>Focused Input <span class="tag green" style="margin-left:6px; text-transform:none;">Click to focus</span></label>
+        <input type="text" class="form-input" placeholder="Click me to see focused state…" />
+      </div>
+      <div class="form-group">
+        <label>Error State</label>
+        <input type="email" class="form-input error" value="invalid@" />
+        <div class="error-msg">Please enter a valid email address.</div>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Form Field Specifications</h3>
+    <table class="btn-spec-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Default</th>
+          <th>Error</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Border</td>
+          <td>solid 2px #DDDDDD</td>
+          <td>solid 2px #D41840</td>
+        </tr>
+        <tr>
+          <td>Text Color</td>
+          <td>#888888</td>
+          <td>#D41840</td>
+        </tr>
+        <tr>
+          <td>Font Size</td>
+          <td>18px (placeholder) / 16px</td>
+          <td>Same</td>
+        </tr>
+        <tr>
+          <td>Font Style</td>
+          <td>Regular</td>
+          <td>Regular</td>
+        </tr>
+        <tr>
+          <td>Padding</td>
+          <td>15px</td>
+          <td>15px</td>
+        </tr>
+        <tr>
+          <td>Width</td>
+          <td>100%</td>
+          <td>100%</td>
+        </tr>
+        <tr>
+          <td>Focus Border</td>
+          <td>#00C28A</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ── SPACING ── -->
+  <section class="section" id="spacing">
+    <div class="section-label">UI Library</div>
+    <h2 class="section-title">Spacing System</h2>
+    <p class="section-subtitle">Padding values for consistent section spacing across all pages.</p>
+
+    <div class="spacing-grid">
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:70px;"></div>
+        <label>Section</label>
+        <code>70px</code>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:70px; opacity:0.5;"></div>
+        <label>Section First</label>
+        <code>70 0 0 0</code>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:35px;"></div>
+        <label>Section Middle</label>
+        <code>35px 0</code>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:50px;"></div>
+        <label>Section Side</label>
+        <code>50px</code>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height:70px; opacity:0.5;"></div>
+        <label>Section Last</label>
+        <code>0 0 70 0</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TEMPLATES ── -->
+  <section class="section" id="templates">
+    <div class="section-label">Resources</div>
+    <h2 class="section-title">Templates & Downloads</h2>
+    <p class="section-subtitle">Official brand assets and templates available for download from the EZFacility style guide.</p>
+
+    <table class="info-table">
+      <tr>
+        <td><a href="https://www.ezfacility.com/style-guide/" class="download-link">Logo Variations – EPS</a></td>
+        <td>Zip file containing all EZF Logo Variations in .eps format</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.ezfacility.com/style-guide/" class="download-link">Logo Variations – SVG</a></td>
+        <td>Zip file containing all EZF Logo Variations in .svg format</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.ezfacility.com/style-guide/" class="download-link">Logo Variations – PNG</a></td>
+        <td>Zip file containing all EZF Logo Variations in .png format</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.ezfacility.com/style-guide/" class="download-link">Fira Sans Font</a></td>
+        <td>Zip file containing the Fira Sans font family</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.ezfacility.com/style-guide/" class="download-link">EZF Icon Set</a></td>
+        <td>Full icon set download for use across digital materials</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.ezfacility.com/style-guide/" class="download-link">Social Media Icons</a></td>
+        <td>Dark grey and full color social icon sets (Twitter, Facebook, LinkedIn, YouTube)</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.ezfacility.com/style-guide/" class="download-link">Wave Background Illustration</a></td>
+        <td>Download available in SVG and PNG formats</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.ezfacility.com/style-guide/" class="download-link">Green Gradient Background</a></td>
+        <td>Download available in SVG and PNG formats</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.ezfacility.com/style-guide/" class="download-link">Letterhead Template</a></td>
+        <td>Official EZFacility letterhead template</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.ezfacility.com/style-guide/" class="download-link">Email Signature Template</a></td>
+        <td>EZFacility email with graphic signature template</td>
+      </tr>
+    </table>
+  </section>
+
+</main>
+
+<!-- Toast notification -->
+<div id="toast">Hex copied to clipboard!</div>
+
+<script>
+  // ── Copy color to clipboard ──
+  function copyColor(hex, el) {
+    navigator.clipboard.writeText(hex).then(() => {
+      el.classList.add('copied');
+      el.querySelector('.copy-badge').textContent = 'Copied!';
+      showToast('Copied ' + hex + ' to clipboard');
+      setTimeout(() => {
+        el.classList.remove('copied');
+        el.querySelector('.copy-badge').textContent = 'Copy';
+      }, 2000);
+    });
+  }
+
+  // ── Toast ──
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  // ── Hamburger menu ──
+  const hamburger = document.getElementById('hamburger');
+  const overlay   = document.getElementById('overlay');
+
+  function openNav() {
+    document.body.classList.add('nav-open');
+    hamburger.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeNav() {
+    document.body.classList.remove('nav-open');
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+
+  hamburger.addEventListener('click', () => {
+    document.body.classList.contains('nav-open') ? closeNav() : openNav();
+  });
+
+  overlay.addEventListener('click', closeNav);
+
+  // Close nav when a sidebar link is tapped on mobile
+  document.querySelectorAll('#sidebar nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768) closeNav();
+    });
+  });
+
+  // Close nav on Escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeNav();
+  });
+
+  // ── Active nav highlight on scroll ──
+  const sections = document.querySelectorAll('.section, #hero');
+  const navLinks = document.querySelectorAll('#sidebar nav a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const id = entry.target.id;
+        const active = document.querySelector(`#sidebar nav a[href="#${id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
